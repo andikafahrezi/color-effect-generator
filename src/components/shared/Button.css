@@ -1,0 +1,32 @@
+.btn {
+    height: 36px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 8px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.btn-primary {
+    background: #1d1d1f;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    opacity: 0.78;
+}
+
+.btn-secondary {
+    background: #f5f5f7;
+    color: #1d1d1f;
+    border: 1px solid #e5e5e7;
+}
+
+.btn-secondary:hover {
+    background: #ebebed;
+}

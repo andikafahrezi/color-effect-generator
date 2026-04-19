@@ -1,0 +1,22 @@
+.copied-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: #1d1d1f;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 100px;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.2s;
+  z-index: 999;
+  white-space: nowrap;
+}
+
+.copied-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
