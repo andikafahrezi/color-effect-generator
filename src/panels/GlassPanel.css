@@ -158,7 +158,7 @@
 
 .glass-reco-card:hover {
   border-color: #aaa;
-  transform: translateY(-1px);
+  /* transform: translateY(-1px); */
 }
 
 .glass-reco-preview {

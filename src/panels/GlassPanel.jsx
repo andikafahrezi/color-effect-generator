@@ -106,7 +106,7 @@ export default function GlassPanel({ showToast }) {
 
   return (
     <div className="glass-panel">
-      <motion.div
+      <motion.div 
         className="card"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -115,7 +115,7 @@ export default function GlassPanel({ showToast }) {
         <span className="card-label">Glass & Blur Settings</span>
         <div className="glass-controls">
           {/* BLUR */}
-          <motion.div
+          <motion.div 
             className="glass-control-row"
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
@@ -137,7 +137,7 @@ export default function GlassPanel({ showToast }) {
           </motion.div>
 
           {/* BG OPACITY */}
-          <motion.div
+          <motion.div 
             className="glass-control-row"
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
@@ -159,7 +159,7 @@ export default function GlassPanel({ showToast }) {
           </motion.div>
 
           {/* BORDER OPACITY */}
-          <motion.div
+          <motion.div 
             className="glass-control-row"
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
@@ -181,7 +181,7 @@ export default function GlassPanel({ showToast }) {
           </motion.div>
 
           {/* BORDER WIDTH */}
-          <motion.div
+          <motion.div 
             className="glass-control-row"
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
@@ -204,7 +204,7 @@ export default function GlassPanel({ showToast }) {
           </motion.div>
 
           {/* RADIUS */}
-          <motion.div
+          <motion.div 
             className="glass-control-row"
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
@@ -226,7 +226,7 @@ export default function GlassPanel({ showToast }) {
           </motion.div>
 
           {/* SHADOW */}
-          <motion.div
+          <motion.div 
             className="glass-control-row"
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
@@ -248,7 +248,7 @@ export default function GlassPanel({ showToast }) {
           </motion.div>
 
           {/* TINT COLOR */}
-          <motion.div
+          <motion.div 
             className="glass-control-row"
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
@@ -270,19 +270,14 @@ export default function GlassPanel({ showToast }) {
                 placeholder="#ffffff"
               />
               <div style={{ display: "flex", gap: "4px", flexWrap: "wrap" }}>
-                {["light", "dark", "frosted"].map((t, index) => (
-                  <motion.button
+                {["light", "dark", "frosted"].map((t) => (
+                  <button
                     key={t}
                     className={`dir-btn ${tone === t ? "active" : ""}`}
                     onClick={() => handleSetTone(t)}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.4 + index * 0.05 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                   >
                     {t.charAt(0).toUpperCase() + t.slice(1)}
-                  </motion.button>
+                  </button>
                 ))}
               </div>
             </div>
@@ -290,15 +285,10 @@ export default function GlassPanel({ showToast }) {
         </div>
 
         {/* PREVIEW */}
-        <motion.div
-          className="glass-preview-wrap"
-          initial={{ opacity: 0.8, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-        >
+        <div className="glass-preview-wrap">
           <div className="glass-preview-bg" style={{ background: bgBase }}>
             {bgBlobColors.map((color, i) => (
-              <motion.div
+              <div
                 key={i}
                 className="glass-preview-blob"
                 style={{
@@ -310,18 +300,10 @@ export default function GlassPanel({ showToast }) {
                   height: "70%",
                   borderRadius: "50%",
                 }}
-                animate={{
-                  y: [0, -10, 0],
-                }}
-                transition={{
-                  duration: 3 + i,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
+              ></div>
             ))}
           </div>
-          <motion.div
+          <div
             className="glass-preview-card"
             style={{
               background: `rgba(${tr}, ${tg}, ${tb}, ${bgAlpha})`,
@@ -336,24 +318,23 @@ export default function GlassPanel({ showToast }) {
                 isDark ? 0.5 : 0.15
               })`,
             }}
-            whileHover={{ scale: 1.02 }}
           >
             <div className="glass-preview-label">Preview</div>
             <div className="glass-preview-title">Glass Effect</div>
             <div className="glass-preview-subtitle">backdrop-filter active</div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </motion.div>
 
       {/* PRESETS */}
-      <motion.div
+      <motion.div 
         className="reco-section"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
         <div className="section-label">Style Presets</div>
-        <motion.div
+        <motion.div 
           className="glass-reco-grid"
           variants={containerVariants}
           initial="initial"
@@ -371,7 +352,7 @@ export default function GlassPanel({ showToast }) {
                 onClick={() => handleLoadPreset(preset)}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.05 }}
+                transition={{ delay: i * 0.01 }}
                 whileHover={{ scale: 1.05, y: -4 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -398,7 +379,7 @@ export default function GlassPanel({ showToast }) {
                         repeat: Infinity,
                         ease: "easeInOut",
                       }}
-                    />
+                    ></motion.div>
                   ))}
                   <div
                     className="glass-reco-mini"
@@ -432,77 +413,46 @@ export default function GlassPanel({ showToast }) {
       <hr className="divider" />
 
       {/* TOKENS */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
-      >
+      <div>
         <div style={{ marginBottom: "12px" }}>
           <span className="section-label">Design Tokens</span>
         </div>
-        <motion.div
-          className="glass-tokens-grid"
-          variants={containerVariants}
-          initial="initial"
-          animate="animate"
-        >
-          {tokens.map((t, index) => (
-            <motion.div
-              key={t.name}
-              className="glass-token-row"
-              variants={{
-                initial: { opacity: 0, y: 20 },
-                animate: { opacity: 1, y: 0 },
-              }}
-              whileHover={{ scale: 1.02 }}
-            >
+        <div className="glass-tokens-grid">
+          {tokens.map((t) => (
+            <div key={t.name} className="glass-token-row">
               <div className="glass-token-name">{t.name}</div>
               <div className="glass-token-value">{t.value}</div>
               <div className="glass-token-desc">{t.desc}</div>
-              <motion.button
+              <button
                 className="glass-copy-btn"
                 onClick={() => {
                   copyToClipboard(t.value, () =>
                     showToast(`Copied ${t.name}!`)
                   );
                 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
                 Copy
-              </motion.button>
-            </motion.div>
+              </button>
+            </div>
           ))}
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       {/* CSS SNIPPET */}
-      <motion.div
-        style={{ marginTop: "20px", marginBottom: "10px" }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      >
+      <div style={{ marginTop: "20px", marginBottom: "10px" }}>
         <span className="section-label">CSS Output</span>
-      </motion.div>
-      <motion.div
-        className="figma-snippet"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.55 }}
-      >
-        <motion.button
+      </div>
+      <div className="figma-snippet">
+        <button
           className="snippet-copy-btn"
           onClick={() => {
             copyToClipboard(cssSnippet, () => showToast("CSS copied!"));
           }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
         >
           Copy
-        </motion.button>
+        </button>
         <pre>{cssSnippet}</pre>
-      </motion.div>
+      </div>
     </div>
   );
 }
