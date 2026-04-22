@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { hexToHsl, validateHex, hslToHex } from "../utils/colorMath.js";
 import { copyToClipboard } from "../utils/clipboard.js";
 import Button from "../components/shared/Button.jsx";
@@ -7,17 +8,16 @@ import ColorPicker from "../components/shared/ColorPicker.jsx";
 import Chip from "../components/shared/Chip.jsx";
 import { COLOR_RECOS } from "../data/colorRecommendations.js";
 import "./PalettePanel.css";
- 
+
 export default function PalettePanel({ showToast }) {
   const [baseHex, setBaseHex] = useState("#3b82f6");
   const [paletteName, setPaletteName] = useState("Blue");
   const [palette, setPalette] = useState(null);
   const [layout, setLayout] = useState("columns");
- 
+
   const generateScale = (hex) => {
     const [h, s] = hexToHsl(hex);
-    // const { hslToHex } = require("../utils/colorMath.js");
- 
+
     const steps = [
       { step: 100, lF: 0.97, sF: 0.15 },
       { step: 200, lF: 0.9, sF: 0.3 },
@@ -30,7 +30,7 @@ export default function PalettePanel({ showToast }) {
       { step: 900, lF: 0.15, sF: 0.85 },
       { step: 1000, lF: 0.08, sF: 0.7 },
     ];
- 
+
     return steps.map(({ step, lF, sF }) => ({
       step,
       hex: hslToHex(
@@ -40,7 +40,7 @@ export default function PalettePanel({ showToast }) {
       ),
     }));
   };
- 
+
   const handleGenerate = () => {
     const hex = validateHex(baseHex);
     if (!hex) {
@@ -49,114 +49,195 @@ export default function PalettePanel({ showToast }) {
     }
     setPalette(generateScale(hex));
   };
- 
+
   const handleLoadReco = (hex, name) => {
     setBaseHex(hex);
     setPaletteName(name);
     const newPalette = generateScale(hex);
     setPalette(newPalette);
   };
- 
+
+  const itemVariants = {
+    initial: { opacity: 0, scale: 0.8 },
+    animate: { opacity: 1, scale: 1 },
+  };
+
+  const containerVariants = {
+    animate: {
+      transition: {
+        staggerChildren: 0.05,
+      },
+    },
+  };
+
   const renderLayout = () => {
     if (!palette) {
       return (
-        <div className="empty-state">
+        <motion.div
+          className="empty-state"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
           <div className="empty-icon">◎</div>
           <div className="empty-title">No palette generated yet</div>
-          <div className="empty-desc">Pick a color or choose from recommendations</div>
-        </div>
+          <div className="empty-desc">
+            Pick a color or choose from recommendations
+          </div>
+        </motion.div>
       );
     }
- 
+
     if (layout === "columns") {
       return (
-        <div className="layout-columns">
+        <motion.div
+          className="layout-columns"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
           {palette.map(({ step, hex }) => (
-            <div key={step} className="shade-item">
-              <div className="shade-swatch" style={{ background: hex }}></div>
+            <motion.div
+              key={step}
+              className="shade-item"
+              variants={itemVariants}
+              initial="initial"
+              animate="animate"
+              whileHover={{ scale: 1.05, y: -4 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <div
+                className="shade-swatch"
+                style={{ background: hex }}
+              ></div>
               <div className="shade-info">
                 <div className="shade-step">{step}</div>
-                <button
+                <motion.button
                   className="shade-hex"
                   onClick={() => {
                     copyToClipboard(hex.toUpperCase(), () =>
                       showToast(`Copied ${hex.toUpperCase()}`)
                     );
                   }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   {hex.toUpperCase()}
-                </button>
+                </motion.button>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       );
     }
- 
+
     if (layout === "cards") {
       return (
-        <div className="layout-cards">
+        <motion.div
+          className="layout-cards"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          variants={containerVariants}
+        >
           {palette.map(({ step, hex }) => (
-            <div key={step} className="shade-item">
-              <div className="shade-swatch" style={{ background: hex }}></div>
+            <motion.div
+              key={step}
+              className="shade-item"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, y: -4 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div
+                className="shade-swatch"
+                style={{ background: hex }}
+              ></div>
               <div className="shade-info">
                 <div className="shade-step">
                   {paletteName}-{step}
                 </div>
-                <button
+                <motion.button
                   className="shade-hex"
                   onClick={() => {
                     copyToClipboard(hex.toUpperCase(), () =>
                       showToast(`Copied ${hex.toUpperCase()}`)
                     );
                   }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   {hex.toUpperCase()}
-                </button>
+                </motion.button>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       );
     }
- 
+
     // rows
     return (
-      <div className="layout-rows">
+      <motion.div
+        className="layout-rows"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        variants={containerVariants}
+      >
         {palette.map(({ step, hex }) => {
           const [h, s, l] = hexToHsl(hex);
           return (
-            <div key={step} className="shade-item">
-              <div className="shade-swatch" style={{ background: hex }}></div>
+            <motion.div
+              key={step}
+              className="shade-item"
+              variants={itemVariants}
+              whileHover={{ scale: 1.02, x: 4 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <div
+                className="shade-swatch"
+                style={{ background: hex }}
+              ></div>
               <div className="shade-info">
                 <div className="shade-step">{step}</div>
-                <button
+                <motion.button
                   className="shade-hex"
                   onClick={() => {
                     copyToClipboard(hex.toUpperCase(), () =>
                       showToast(`Copied ${hex.toUpperCase()}`)
                     );
                   }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   {hex.toUpperCase()}
-                </button>
+                </motion.button>
                 <div className="shade-hsl">
                   {Math.round(h)}° {Math.round(s)}% {Math.round(l)}%
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     );
   };
- 
+
   return (
     <div className="palette-panel">
-      <div className="card">
+      <motion.div
+        className="card"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
         <span className="card-label">Base Color</span>
         <div className="input-row">
-          <ColorPicker value={baseHex} onChange={setBaseHex} id="colorPicker1" />
+          <ColorPicker
+            value={baseHex}
+            onChange={setBaseHex}
+            id="colorPicker1"
+          />
           <Input
             className="hex"
             value={baseHex}
@@ -169,59 +250,77 @@ export default function PalettePanel({ showToast }) {
             onChange={(e) => setPaletteName(e.target.value)}
             placeholder="Name (e.g. Blue)"
           />
-          <Button onClick={handleGenerate}>Generate</Button>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button onClick={handleGenerate}>Generate</Button>
+          </motion.div>
         </div>
-        <div className="input-hint">Enter a hex color to generate a 100–1000 scale.</div>
-      </div>
- 
-      <div className="reco-section">
+        <div className="input-hint">
+          Enter a hex color to generate a 100–1000 scale.
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="reco-section"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.1 }}
+      >
         <div className="section-label">Recommended Colors</div>
-        <div className="reco-grid">
-          {COLOR_RECOS.map((reco) => (
-            <Chip
+        <motion.div className="reco-grid">
+          {COLOR_RECOS.map((reco, index) => (
+            <motion.div
               key={reco.hex}
-              color={reco.hex}
-              name={reco.name}
-              hex={reco.hex}
-              onClick={() => handleLoadReco(reco.hex, reco.name)}
-            />
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.02 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Chip
+                color={reco.hex}
+                name={reco.name}
+                hex={reco.hex}
+                onClick={() => handleLoadReco(reco.hex, reco.name)}
+              />
+            </motion.div>
           ))}
-        </div>
-      </div>
- 
+        </motion.div>
+      </motion.div>
+
       <hr className="divider" />
- 
+
       {palette && (
-        <div className="output-section">
+        <motion.div
+          className="output-section"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
           <div className="output-header">
             <div className="color-name-badge">
-              <div className="color-name-swatch" style={{ background: baseHex }}></div>
+              <div
+                className="color-name-swatch"
+                style={{ background: baseHex }}
+              ></div>
               <span className="color-name-text">{paletteName}</span>
               <span className="color-count">{palette.length} tokens</span>
             </div>
             <div className="layout-tabs">
-              <button
-                className={`layout-tab ${layout === "columns" ? "active" : ""}`}
-                onClick={() => setLayout("columns")}
-              >
-                Columns
-              </button>
-              <button
-                className={`layout-tab ${layout === "cards" ? "active" : ""}`}
-                onClick={() => setLayout("cards")}
-              >
-                Cards
-              </button>
-              <button
-                className={`layout-tab ${layout === "rows" ? "active" : ""}`}
-                onClick={() => setLayout("rows")}
-              >
-                Rows
-              </button>
+              {["columns", "cards", "rows"].map((l) => (
+                <motion.button
+                  key={l}
+                  className={`layout-tab ${layout === l ? "active" : ""}`}
+                  onClick={() => setLayout(l)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {l.charAt(0).toUpperCase() + l.slice(1)}
+                </motion.button>
+              ))}
             </div>
           </div>
           {renderLayout()}
-        </div>
+        </motion.div>
       )}
     </div>
   );

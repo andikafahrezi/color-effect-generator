@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import "./MainTabs.css";
 
 export default function MainTabs({ activeTab, onTabChange }) {
@@ -26,14 +27,17 @@ export default function MainTabs({ activeTab, onTabChange }) {
   return (
     <div className="main-tabs">
       {tabs.map((tab) => (
-        <button
+        <motion.button
           key={tab}
           className={`main-tab ${activeTab === tab ? "active" : ""}`}
           onClick={() => onTabChange(tab)}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.96 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
           {icons[tab]}
           {tab.charAt(0).toUpperCase() + tab.slice(1)}
-        </button>
+        </motion.button>
       ))}
     </div>
   );

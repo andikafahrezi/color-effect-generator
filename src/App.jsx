@@ -1,36 +1,64 @@
 import { useState } from "react";
-import Header from "./components/Header.jsx";
-import MainTabs from "./components/MainTabs.jsx";
-import Toast from "./components/Toast.jsx";
-import PalettePanel from "./panels/PalettePanel.jsx";
-import GradientPanel from "./panels/GradientPanel.jsx";
-import GlassPanel from "./panels/GlassPanel.jsx";
+import { motion, AnimatePresence } from "framer-motion";
+import Header from "./components/Header";
+import MainTabs from "./components/MainTabs";
+import Toast from "./components/Toast";
+import PalettePanel from "./panels/PalettePanel";
+import GradientPanel from "./panels/GradientPanel";
+import GlassPanel from "./panels/GlassPanel";
 import "./App.css";
- 
+
 function App() {
   const [activeTab, setActiveTab] = useState("palette");
   const [toastMessage, setToastMessage] = useState("");
   const [showToast, setShowToast] = useState(false);
- 
+
   const handleShowToast = (message) => {
     setToastMessage(message);
     setShowToast(true);
   };
- 
+
+  const panelVariants = {
+    initial: { opacity: 0, y: 10 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -10 },
+  };
+
+  const tabContent = {
+    palette: <PalettePanel showToast={handleShowToast} />,
+    gradient: <GradientPanel showToast={handleShowToast} />,
+    glass: <GlassPanel showToast={handleShowToast} />,
+  };
+
   return (
     <>
       <Header />
       <main className="app-main">
-        <MainTabs activeTab={activeTab} onTabChange={setActiveTab} />
- 
-        {activeTab === "palette" && <PalettePanel showToast={handleShowToast} />}
-        {activeTab === "gradient" && <GradientPanel showToast={handleShowToast} />}
-        {activeTab === "glass" && <GlassPanel showToast={handleShowToast} />}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <MainTabs activeTab={activeTab} onTabChange={setActiveTab} />
+        </motion.div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            variants={panelVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.3 }}
+          >
+            {tabContent[activeTab]}
+          </motion.div>
+        </AnimatePresence>
       </main>
- 
+
       <Toast message={toastMessage} show={showToast} />
     </>
   );
 }
- 
+
 export default App;

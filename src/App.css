@@ -30,8 +30,8 @@ body {
 }
  
 .app-main {
-  max-width: 1100px;
-  margin: 0 12px;
+  /* max-width: 1100px; */
+  margin: 0 30px;
   padding: 24px 20px 64px;
 }
  
