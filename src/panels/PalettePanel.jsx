@@ -221,7 +221,7 @@ export default function PalettePanel({ showToast }) {
               key={reco.hex}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.02 }}
+              transition={{ delay: index * 0.01 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
