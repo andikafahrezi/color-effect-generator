@@ -414,7 +414,7 @@ export default function GlassPanel({ showToast }) {
 
       {/* TOKENS */}
       <div>
-        <div style={{ marginBottom: "12px" }}>
+        <div style={{ marginBottom: "12px", textAlign: "start" }}>
           <span className="section-label">Design Tokens</span>
         </div>
         <div className="glass-tokens-grid">
@@ -439,7 +439,7 @@ export default function GlassPanel({ showToast }) {
       </div>
 
       {/* CSS SNIPPET */}
-      <div style={{ marginTop: "20px", marginBottom: "10px" }}>
+      <div style={{ marginTop: "20px", marginBottom: "10px", textAlign: "start" }}>
         <span className="section-label">CSS Output</span>
       </div>
       <div className="figma-snippet">
