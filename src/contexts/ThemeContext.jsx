@@ -5,13 +5,13 @@ export const ThemeContext = createContext();
 
 // Create provider component
 export function ThemeProvider({ children }) {
-  // Check if user preference exists in localStorage
+  // Check if user preference exists in localStorage, default to light
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
     return savedTheme === "dark";
   });
 
-  // Update localStorage & apply theme to document
+  // Apply theme to document on mount and when isDarkMode changes
   useEffect(() => {
     const theme = isDarkMode ? "dark" : "light";
     localStorage.setItem("theme", theme);

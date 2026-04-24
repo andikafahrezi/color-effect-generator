@@ -135,7 +135,7 @@
 .section-label {
   font-size: 10px;
   font-weight: 600;
-  color: #6e6e73;
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.07em;
   margin-bottom: 10px;
@@ -148,16 +148,16 @@
 }
 
 .glass-reco-card {
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   transition: border-color 0.15s, transform 0.15s;
-  background: #fff;
+  background: var(--bg-primary);
 }
 
 .glass-reco-card:hover {
-  border-color: #aaa;
+  border-color: var(--text-tertiary);
   /* transform: translateY(-1px); */
 }
 
@@ -172,24 +172,24 @@
 
 .glass-reco-info {
   padding: 10px 12px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border-color);
 }
 
 .glass-reco-name {
   font-size: 12px;
   font-weight: 600;
   margin-bottom: 2px;
-  color: #1d1d1f;
+  color: var(--text-primary);
 }
 
 .glass-reco-desc {
   font-size: 10px;
-  color: #aeaeb2;
+  color: var(--text-tertiary);
 }
 
 .divider {
   border: none;
-  border-top: 1px solid #e5e5e7;
+  border-top: 1px solid var(--border-color);
   margin-bottom: 20px;
 }
 
@@ -201,8 +201,8 @@
 }
 
 .glass-token-row {
-  background: #f5f5f7;
-  border: 1px solid #e5e5e7;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 10px 12px;
   display: flex;
@@ -213,7 +213,7 @@
 .glass-token-name {
   font-size: 10px;
   font-weight: 600;
-  color: #6e6e73;
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -221,14 +221,14 @@
 .glass-token-value {
   font-size: 12px;
   font-weight: 500;
-  color: #1d1d1f;
+  color: var(--text-primary);
   font-family: "SF Mono", "Fira Mono", monospace;
   word-break: break-all;
 }
 
 .glass-token-desc {
   font-size: 10px;
-  color: #aeaeb2;
+  color: var(--text-tertiary);
 }
 
 .glass-copy-btn {
@@ -237,7 +237,7 @@
   align-items: center;
   gap: 3px;
   font-size: 10px;
-  color: #aeaeb2;
+  color: var(--text-tertiary);
   cursor: pointer;
   background: none;
   border: none;
@@ -246,7 +246,7 @@
 }
 
 .glass-copy-btn:hover {
-  color: #1d1d1f;
+  color: var(--text-primary);
 }
 
 .figma-snippet {

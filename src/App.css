@@ -40,12 +40,15 @@
   --accent: #f5f5f7;
 }
 
-/* smooth transition */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  transition: background-color 0.2s ease, color 0.2 ease, border-color 0.2s ease;
+/* smooth theme transition for key elements */
+body,
+header,
+.card,
+.gradient-control,
+.glass-panel .card,
+.layout-tabs,
+.main-tabs {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 html,
