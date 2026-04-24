@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import Header from "./components/Header";
 import MainTabs from "./components/MainTabs";
 import Toast from "./components/Toast";
@@ -58,6 +59,14 @@ function App() {
 
       <Toast message={toastMessage} show={showToast} />
     </>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 
