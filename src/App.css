@@ -1,40 +1,65 @@
 :root {
-  --bg: #f5f5f7;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #eeeeee;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --border-color: #e0e0e0;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* original variable */
+  --bg: #f5f5f5;
   --surface: #ffffff;
   --border: #e5e5e7;
-  --text-primary: #1d1d1f;
-  --text-secondary: #6e6e73;
   --text-tertiary: #aeaeb2;
   --accent: #1d1d1f;
   --radius: 12px;
   --radius-sm: 8px;
 }
- 
+
+/* theme variables (dark mode) */
+:root[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #3a3a3a;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --border-color: #444444;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* smooth transition */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: background-color 0.2s ease, color 0.2 ease, border-color 0.2s ease;
 }
+
 html,
 body {
   -webkit-font-smoothing: antialiased;
 }
- 
+
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
-  background: var(--bg);
+  background: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
   font-size: 13px;
   line-height: 1.5;
 }
- 
+
 .app-main {
   /* max-width: 1100px; */
   margin: 0 30px;
   padding: 24px 20px 64px;
 }
- 
+
 @media (max-width: 640px) {
   .app-main {
     padding: 18px 16px 64px;
