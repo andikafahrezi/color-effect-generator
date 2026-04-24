@@ -28,6 +28,7 @@ header {
 
 .header-text {
   flex: 1;
+  text-align: start;
 }
 
 .header-title {
@@ -37,18 +38,18 @@ header {
   color: var(--text-primary);
 }
 
-.header-sub {
+/* .header-sub {
   font-size: 11px;
   color: var(--text-secondary);
-}
+} */
 
 /* ===== THEME TOGGLE BUTTON ===== */
 .theme-toggle-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   background-color: var(--bg-secondary);
@@ -71,7 +72,7 @@ header {
 }
 
 .theme-toggle-btn .material-symbols-rounded {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   font-variation-settings:
     "FILL" 0,
@@ -93,10 +94,6 @@ header {
 
   .header-title {
     font-size: 12px;
-  }
-
-  .header-sub {
-    font-size: 10px;
   }
 
   .theme-toggle-btn {

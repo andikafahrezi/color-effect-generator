@@ -10,8 +10,8 @@ export default function Header() {
     <header>
       <div className="header-content">
         <div className="header-text">
-          <div className="header-title">Color Token Generator by AfterFrameStudio™</div>
-          <div className="header-sub">Figma Variable Tokens</div>
+          <div className="header-title">Color Token Generator by <span style={{ color: '#CC5605' }}>AfterFrameStudio™</span></div>
+          {/* <div className="header-sub">Figma Variable Tokens</div> */}
         </div>
         
         {/* Dark Mode Toggle Button */}

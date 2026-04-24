@@ -9,7 +9,7 @@ import GradientPanel from "./panels/GradientPanel";
 import GlassPanel from "./panels/GlassPanel";
 import "./App.css";
 
-function App() {
+function AppContent() {
   const [activeTab, setActiveTab] = useState("palette");
   const [toastMessage, setToastMessage] = useState("");
   const [showToast, setShowToast] = useState(false);

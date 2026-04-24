@@ -2,8 +2,8 @@
 }
 
 .card {
-  background: #fff;
-  border: 1px solid #e5e5e7;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 18px;
   margin-bottom: 20px;
@@ -12,7 +12,7 @@
 .card-label {
   font-size: 10px;
   font-weight: 600;
-  color: #6e6e73;
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.07em;
   margin-bottom: 12px;
@@ -35,14 +35,14 @@
 .glass-control-label {
   font-size: 11px;
   font-weight: 500;
-  color: #6e6e73;
+  color: var(--text-secondary);
   width: 110px;
   flex-shrink: 0;
 }
 
 .glass-control-label span {
   font-size: 10px;
-  color: #aeaeb2;
+  color: var(--text-tertiary);
   font-weight: 400;
   display: block;
 }
@@ -57,14 +57,14 @@
 
 .slider-wrap input[type="range"] {
   flex: 1;
-  accent-color: #1d1d1f;
+  accent-color: var(--text-primary);
   height: 8px;
 }
 
 .slider-val {
   font-size: 12px;
   font-weight: 600;
-  color: #1d1d1f;
+  color: var(--text-primary);
   min-width: 36px;
   text-align: right;
 }
@@ -148,7 +148,7 @@
 }
 
 .glass-reco-card {
-  border: 1px solid #e5e5e7;
+  border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
@@ -172,13 +172,14 @@
 
 .glass-reco-info {
   padding: 10px 12px;
-  border-top: 1px solid #e5e5e7;
+  border-top: 1px solid var(--border);
 }
 
 .glass-reco-name {
   font-size: 12px;
   font-weight: 600;
   margin-bottom: 2px;
+  color: #1d1d1f;
 }
 
 .glass-reco-desc {
