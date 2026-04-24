@@ -148,21 +148,16 @@ export default function GradientPanel({ showToast }) {
                 { label: "↘ Diagonal", value: "to bottom right" },
                 { label: "↓ Down", value: "to bottom" },
                 { label: "135°", value: "135deg" },
-              ].map((dir, index) => (
-                <motion.button
+              ].map((dir) => (
+                <button
                   key={dir.value}
                   className={`dir-btn ${
                     direction === dir.value ? "active" : ""
                   }`}
                   onClick={() => setDirection(dir.value)}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.01 + index * 0.05 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                 >
                   {dir.label}
-                </motion.button>
+                </button>
               ))}
             </div>
           </motion.div>

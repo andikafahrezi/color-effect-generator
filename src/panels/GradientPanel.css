@@ -144,6 +144,10 @@
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 
+.dir-btn:hover:not(.active) {
+  border-color: var(--text-tertiary);
+}
+
 .dir-btn.active {
   background: var(--text-primary);
   color: var(--bg-primary);
