@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import Header from "./components/Header";
 import MainTabs from "./components/MainTabs";
 import Toast from "./components/Toast";
@@ -8,7 +9,7 @@ import GradientPanel from "./panels/GradientPanel";
 import GlassPanel from "./panels/GlassPanel";
 import "./App.css";
 
-function App() {
+function AppContent() {
   const [activeTab, setActiveTab] = useState("palette");
   const [toastMessage, setToastMessage] = useState("");
   const [showToast, setShowToast] = useState(false);
@@ -58,6 +59,14 @@ function App() {
 
       <Toast message={toastMessage} show={showToast} />
     </>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 

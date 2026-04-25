@@ -269,7 +269,7 @@ export default function GlassPanel({ showToast }) {
                 onChange={(e) => setTint(e.target.value)}
                 placeholder="#ffffff"
               />
-              <div style={{ display: "flex", gap: "4px", flexWrap: "wrap" }}>
+              <div className="glass-tone-buttons">
                 {["light", "dark", "frosted"].map((t) => (
                   <button
                     key={t}

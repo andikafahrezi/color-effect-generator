@@ -13,8 +13,8 @@
 }
 
 .btn-primary {
-    background: #1d1d1f;
-    color: #fff;
+    background: var(--text-primary);
+    color: var(--bg-primary);
 }
 
 .btn-primary:hover {
@@ -22,11 +22,11 @@
 }
 
 .btn-secondary {
-    background: #f5f5f7;
-    color: #1d1d1f;
-    border: 1px solid #e5e5e7;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
 }
 
 .btn-secondary:hover {
-    background: #ebebed;
+    background: var(--bg-tertiary);
 }
