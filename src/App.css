@@ -76,3 +76,8 @@ body {
     padding: 18px 16px 64px;
   }
 }
+
+/* copyright footer styling */
+.copyright {
+  color: var(--text-tertiary)
+}

@@ -29,3 +29,5 @@ export default function Header() {
     </header>
   );
 }
+
+// TODO: add copyright footer

@@ -40,3 +40,6 @@ export default function MainTabs({ activeTab, onTabChange }) {
     </div>
   );
 }
+
+// belum selesai
+// todo add export functionality

@@ -71,3 +71,5 @@ function App() {
 }
 
 export default App;
+
+// Copyright 2025 AfterFrameStudio
