@@ -54,69 +54,13 @@ Color Token Generator is a free web application designed to help UI/UX Designers
 - **Deployment:** Vercel
 - **Font:** Bricolage Grotesque (Google Fonts)
 
-## 🚀 Quick Start
+## 🚀 Getting Started
 
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
-- Git
-- GitHub account
+Simply visit the live application:
 
-### Installation
+**[🌐 color-effect-generator.vercel.app](https://color-effect-generator.vercel.app)**
 
-#### Option 1: Fork the Repository (Recommended)
-
-1. **Fork the repository**
-   - Go to [Color Token Generator Repository](https://github.com/andikafahrezi/color-effect-generator)
-   - Click the **[Fork]** button in the top-right corner
-   - This creates a copy of the repository in your GitHub account
-
-2. **Clone your fork**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/color-effect-generator.git
-   cd color-effect-generator
-   ```
-   
-   Replace `YOUR_USERNAME` with your actual GitHub username.
-
-3. **Set up upstream remote** (to keep your fork in sync)
-   ```bash
-   git remote add upstream https://github.com/andikafahrezi/color-effect-generator.git
-   ```
-
-4. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-5. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
-6. **Open in browser**
-   ```
-   http://localhost:5173
-   ```
-
-#### Option 2: Clone Directly (Read-Only)
-
-If you just want to run the project locally without contributing:
-
-```bash
-git clone https://github.com/andikafahrezi/color-effect-generator.git
-cd color-effect-generator
-npm install
-npm run dev
-```
-
-### Why Fork?
-
-Forking allows you to:
-- Contribute back to the original project via Pull Requests
-- Maintain your own version of the project
-- Keep your fork in sync with the original repository
-- Learn Git workflows and collaboration practices
+No installation needed! Start generating colors and effects right away.
 
 ## 📚 Usage Guide
 
