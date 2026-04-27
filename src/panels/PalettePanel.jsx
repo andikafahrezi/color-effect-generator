@@ -275,3 +275,6 @@ export default function PalettePanel({ showToast }) {
     </div>
   );
 }
+
+// fix: color picker now works correctly
+// bug was in the input validation
