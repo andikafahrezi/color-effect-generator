@@ -126,14 +126,13 @@ Preference is automatically saved to your browser.
 ## 📸 Screenshots
 
 ### Palette Generator
-> [Add screenshot of Palette tab here - both light and dark mode]
-> Use the guide below to add screenshots
+![Palette Generator - Light Mode](./screenshots/palette-light.png)
 
 ### Gradient Generator
-> [Add screenshot of Gradient tab here]
+![Gradient Generator - Light Mode](./screenshots/gradient-dark.png)
 
 ### Glass Morphism Generator
-> [Add screenshot of Glass tab here]
+![Glass Generator - Light Mode](./screenshots/Glass-dark.png)
 
 ### Dark Mode
 > [Add screenshot showing dark mode theme]
