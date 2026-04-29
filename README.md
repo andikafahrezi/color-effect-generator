@@ -129,10 +129,10 @@ Preference is automatically saved to your browser.
 ![Palette Generator - Light Mode](./screenshots/palette-light.png)
 
 ### Gradient Generator
-![Gradient Generator - Light Mode](./screenshots/gradient-dark.png)
+![Gradient Generator - Light Mode](./screenshots/gradient-light.png)
 
 ### Glass Morphism Generator
-![Glass Generator - Light Mode](./screenshots/Glass-dark.png)
+![Glass Generator - Light Mode](./screenshots/Glass-light.png)
 
 ### Dark Mode
 > [Add screenshot showing dark mode theme]
