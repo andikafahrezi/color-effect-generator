@@ -132,7 +132,7 @@ Preference is automatically saved to your browser.
 ![Gradient Generator - Light Mode](./screenshots/gradient-light.png)
 
 ### Glass Morphism Generator
-![Glass Generator - Light Mode](./screenshots/Glass-light.png)
+![Glass Generator - Light Mode](./screenshots/glass-light.png)
 
 ### Dark Mode
 > [Add screenshot showing dark mode theme]
